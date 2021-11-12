@@ -1,0 +1,132 @@
+[meta title:"My Idyll Post" description:"Short description of your project" /]
+
+[Header
+  fullWidth:true
+  title:"My Idyll Post"
+  subtitle:"Introduction to Idyll"
+  author:"Aashi Pandey"
+  authorLink:"https://github.com/aashipandey46"
+  date:"Nov 11, 2021"
+  background:"#D3D3D3"
+  color:"#000000"
+   /]
+
+[var name:"x" value:0 /]
+
+//Interactivity
+
+
+[SVG src:"static/images/pic.svg" /]
+
+## Introduction
+
+
+I have used option 3 that is to use 4 of Idyll's "built in" components. I have incorporated charts, links, scrolling and some other idyll built in components. Please move forward to view.
+
+
+//hyperlink
+I have used and refered to idyll documentation ([hyperlinks](https://idyll-lang.org)) for this project. 
+
+
+[Scroller currentStep:scrollerIndex]
+  [Graphic style:`{padding: 50}`]
+      [Chart type:`"line"` data:`scrollerChartData.slice(0, scrollerIndex + 2)` /]
+  [/Graphic]
+
+  [Step]## Scroller![/Step]
+  [Step]## Introduction   [/Step]
+  [Step]## ...  Dataset[/Step]
+  [Step]## Table[/Step]
+  [Step]## Chart[/Step]
+  [Step]## Carry on.[/Step]
+  
+[/Scroller]
+
+
+
+#Dataset1
+
+#Table1
+[data name:'building' source:'building_inventory.csv' /]
+[Table data:building /]
+
+#Dataset2
+#Table2
+[Table data:death /]
+
+
+
+#Chart1 
+
+
+[Chart type:'bar' data:`building`  x:'Year Constructed' y:'Square Footage' domain:`null` range:`null` /]
+Total Square Footage per Year Constructed
+
+
+
+
+#Chart2
+
+
+[data name:'death' source:'CausesOfDeath.csv' /]
+
+
+[Chart type:'line' data:`death`  x:'YEAR' y:'Value' domain:`null` range:`null` /]
+Number od deaths per Year
+
+
+
+
+##D3.js
+
+[HistogramCustomD3Component className:"d3-component" state:state /]
+
+
+//button
+[var name:"myVar" value:0 /]
+
+[button onClick:`myVar += 1`]Click if you Liked the effort[/button]
+
+Total Likes: [Display value:myVar /]
+
+
+## Writeup
+
+
+I have used following Idyll built-in components-
+*Used links component. On clicking on my name on the top, you can visist my github profile. ALso, used in text link for the idyll documentation that I used.
+
+*Incorporated svg Image
+
+*Made two tables for two datasets using build in Table component.
+
+*Made two line charts for both the datasets.
+
+*Used Scroller for showing the content sequence on the page.
+
+*Used Action link at the last. On clicking on it, it displays how many likes I got on my page.
+
+*Last, I tried using D3 components for creating chart, but I faced some issues but thought I should keep it here.
+
+*Made changes in the styles.css and histogram-custom-d3-component file.
+
+*Here I am using Markdown to put my writeup in the idyll page itself
+
+
+#About the building dataset and chart
+It is the dataset that we have used in our previous assignments.
+It contains information about the buildings contructed in specific years, have columns such as building type, square footage, country, agency etc.
+I created simple bar chart using idyll build in functions. The chart shows Total number of Square footage per year constructed. 
+I choose this dataset because it has good number of quantitative and categorical data. By using the chart I wanted to give information about which year the building has highest or lowest total square footage area.
+
+#About the Cause of Death dataset and chart
+I found this dataset here ([hyperlinks](https://perso.telecom-paristech.fr/eagan/class/igr204/datasets)) 
+This dataset contain information about the number of death in France becuase of certain reasons, per year. It is very good dataset and a lot of visualization can be done on the basis of the columns such as sex, age and geographical location.
+I decided to make chart to show number of deaths per year. The chart is bit cluttered here. And that is one of the flaw I found of buit-in components of Idyll. It has very less interactivity and the view is not nice.
+
+
+
+
+
+
+
